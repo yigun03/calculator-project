@@ -22,5 +22,5 @@ def divide(a, b):
     Returns: float: a / b
     Raises: ValueError: b가 0일 때"""
     if b == 0 :
-        raise ValueError("Cannot divide by zero / 0으로 나눌 수 없습니다.") 
+        raise ValueError(f"Cannot divide by zero: divisor was {b}") 
     return a / b
