@@ -33,6 +33,10 @@ class TestCalculator(unittest.TestCase):
     def test_multiply_zero(self):
         self.assertEqual(multiply(100, 0), 0)
 
+    def test_multiply_float(self):
+        """소수점 곱셈"""
+        self.assertAlmostEqual(multiply(0.1, 0.2), 0.02, places=5)
+
     # ── 나눗셈 테스트 ────────────────────────
     def test_divide_positive(self):
         self.assertEqual(divide(10, 2), 5.0)
@@ -51,6 +55,10 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError) as ctx:
             divide(5, 0)
         self.assertIn("Cannot divide by zero", str(ctx.exception))
+
+    def test_divide_negative(self):
+        """음수 나눗셈"""
+        self.assertEqual(divide(-10, 2), -5.0)
 
 if __name__ == '__main__':
     unittest.main()
